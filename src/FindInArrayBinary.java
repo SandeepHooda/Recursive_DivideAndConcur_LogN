@@ -1,12 +1,13 @@
 
 
 public class FindInArrayBinary {
-
+	static int runCount = 0;
 	public static void main(String[] args) {
 		FindInArrayBinary find = new FindInArrayBinary();
 		int[] nums = {4, 5, 6, 7, 0, 1, 2};
 		int[] pointers = {0,nums.length-1};
 		System.out.println(find.divideAndFind(nums, 4, pointers));
+		System.out.println("Run count "+runCount);
 		System.out.println(find.divideAndFind(nums, 5, pointers));
 		System.out.println(find.divideAndFind(nums, 6, pointers));
 		System.out.println(find.divideAndFind(nums, 7, pointers));
@@ -27,7 +28,7 @@ public class FindInArrayBinary {
 	}
 	
 	public int  divideAndFind(int[] nums, int target, int[] pointers) {
-		
+		runCount++;
 		//Should we further divide?
 		
 		//Don't divide if
