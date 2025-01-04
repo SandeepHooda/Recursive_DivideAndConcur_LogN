@@ -25,7 +25,7 @@ public class FistBadVersion {
 		
 		//If yes then
 		int midVersion = (start + end)/2;
-
+		//Test the half and make a recursive call 
 		if (isBadVersion(midVersion)) {
 			return findFirstBad(start, midVersion);//Left
 		}else {

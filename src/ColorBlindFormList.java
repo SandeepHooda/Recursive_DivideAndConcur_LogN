@@ -1,56 +1,123 @@
 
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ColorBlindFormList {
 	static int runCount = 0;
+	static String colorToFind = "red";
+
 	public static void main(String[] args) {
-		String[] colors = {"red", "green", "blue","white","black", "noar", "blac",
-				"red1", "green1", "blue1","white1","black1", "noar1", "blac1"};
+		String[] colors = { "red", "green", "blue", "white", "black", "noar", "blac", "red1", "green1", "blue1",
+				"white1", "black1", "noar1", "blac1" };
 		List<String> colorsToTest = Arrays.asList(colors);
 		ColorBlindFormList test = new ColorBlindFormList();
-		
+
+		runCount = 0;
+		colorToFind = "red";
 		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+runCount);
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "green";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "blue";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		
+		runCount = 0;
+		colorToFind = "white";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "black";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "noar";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "blac";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		
+		runCount = 0;
+		colorToFind = "red1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "green1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "blue1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		
+		runCount = 0;
+		colorToFind = "white1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "black1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "noar1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
+		
+		runCount = 0;
+		colorToFind = "blac1";
+		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+		System.out.println("Run count "+colorToFind +" "+ runCount);
 	}
-	
-	
+
 	public boolean testBlindness(List<String> color) {
-		if (color.contains("green") ) {
+		//This is still O(n) but we are not optimizing this test function
+		if (color.contains(colorToFind)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
-	
-	
-	public List<String> findColorBlindness_DivideAndConcur(List<String> colors){
+
+	public List<String> findColorBlindness_DivideAndConcur(List<String> colors) {
 		runCount++;
-		
-		//Should we further divide?
-		
-		//Don't divide if
-		if (!testBlindness(colors)) {//Does not contain in the list or this half 
+
+		// Should we further divide?
+
+		// Don't divide if
+		if (!testBlindness(colors)) {// Does not contain in the list or this half
 			return null;
-		}else if (colors.size() == 1) { //The list or the sublist  has only one element
+		} else if (colors.size() == 1) { // The list or the sublist has only one element
 			return colors;
 		}
-		
-	
-		//Yes we should divide further
-		List<String> lefthalf = colors.subList(0, colors.size()/2);
-		List<String> righthalf = colors.subList(colors.size()/2,colors.size() );
-		
-		if ((testBlindness(lefthalf)  )) {
+
+		// Yes we should divide further
+		// Test the half and make a recursive call
+		List<String> lefthalf = colors.subList(0, colors.size() / 2);
+		List<String> righthalf = colors.subList(colors.size() / 2, colors.size());
+
+		if ((testBlindness(lefthalf))) {
 			return findColorBlindness_DivideAndConcur(lefthalf);
-		}else {
+		} else {
 			return findColorBlindness_DivideAndConcur(righthalf);
 		}
-		
-		
+
 	}
 
 }
