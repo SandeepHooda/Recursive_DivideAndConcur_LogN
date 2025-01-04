@@ -12,78 +12,15 @@ public class ColorBlindFormList {
 		List<String> colorsToTest = Arrays.asList(colors);
 		ColorBlindFormList test = new ColorBlindFormList();
 
-		runCount = 0;
-		colorToFind = "red";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "green";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "blue";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
+		for (String color : colors) {
+			runCount = 0;
+			colorToFind = color;
+			System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
+			System.out.println("Run count "+colorToFind +" "+ runCount);
+		}
 		
 		
-		runCount = 0;
-		colorToFind = "white";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
 		
-		runCount = 0;
-		colorToFind = "black";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "noar";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "blac";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		
-		runCount = 0;
-		colorToFind = "red1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "green1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "blue1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		
-		runCount = 0;
-		colorToFind = "white1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "black1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "noar1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
-		
-		runCount = 0;
-		colorToFind = "blac1";
-		System.out.println(test.findColorBlindness_DivideAndConcur(colorsToTest));
-		System.out.println("Run count "+colorToFind +" "+ runCount);
 	}
 
 	public boolean testBlindness(List<String> color) {
